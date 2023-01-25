@@ -26,9 +26,7 @@ function App() {
 		try {
 			async function startFetching() {
 				const data = await axios.get(
-					`https://geo.ipify.org/api/v2/country,city?apiKey=${
-						import.meta.env.VITE_REACT_APP_MY_ENV_VAL
-					}&ipAddress=192.212.174.101`
+					`https://geo.ipify.org/api/v2/country,city?apiKey=at_w5pHfappDWQR3GFiFO5g7gehO3mDk&ipAddress=192.212.174.101`
 				);
 				if (!ignore) {
 					setAddress(data.data);

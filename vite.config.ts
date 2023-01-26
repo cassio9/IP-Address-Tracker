@@ -10,5 +10,6 @@ Object.keys(process.env).forEach((key) => {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	define: viteEnv,
 	plugins: [react()],
 });

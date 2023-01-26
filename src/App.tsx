@@ -26,9 +26,7 @@ function App() {
 		try {
 			async function startFetching() {
 				const data = await axios.get(
-					`https://geo.ipify.org/api/v2/country,city?apiKey=${
-						import.meta.env.VITE_NETLIFY_UI
-					}&ipAddress=192.212.174.101`
+					`https://geo.ipify.org/api/v2/country,city?apiKey=at_w5pHfappDWQR3GFiFO5g7gehO3mDk&ipAddress=192.212.174.101`
 				);
 				if (!ignore) {
 					setAddress(data.data);
@@ -47,7 +45,7 @@ function App() {
 
 	const getInputIP = async () => {
 		const data = await axios.get(
-			`https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_NETLIFY_UI}&${
+			`https://geo.ipify.org/api/v2/country,city?apiKey=at_w5pHfappDWQR3GFiFO5g7gehO3mDk&${
 				checkIpAddress.test(ipAddress)
 					? `ipAddress=${ipAddress}`
 					: checkDomain.test(ipAddress)

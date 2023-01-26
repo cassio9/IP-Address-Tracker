@@ -17,6 +17,8 @@ function App() {
 	const [address, setAddress] = useState<dataAddress | null>(null);
 	const [ipAddress, setIpAddress] = useState("");
 
+	const VITE_KEY: string = import.meta.env.VITE_KEY;
+
 	const checkIpAddress =
 		/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/gi;
 	const checkDomain = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+/;
@@ -26,9 +28,7 @@ function App() {
 		try {
 			async function startFetching() {
 				const data = await axios.get(
-					`https://geo.ipify.org/api/v2/country,city?apiKey=${
-						import.meta.env.VITE_KEY
-					}&ipAddress=192.212.174.101`
+					`https://geo.ipify.org/api/v2/country,city?apiKey=${VITE_KEY}&ipAddress=192.212.174.101`
 				);
 				if (!ignore) {
 					setAddress(data.data);
@@ -47,7 +47,7 @@ function App() {
 
 	const getInputIP = async () => {
 		const data = await axios.get(
-			`https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_KEY}&${
+			`https://geo.ipify.org/api/v2/country,city?apiKey=${VITE_KEY}&${
 				checkIpAddress.test(ipAddress)
 					? `ipAddress=${ipAddress}`
 					: checkDomain.test(ipAddress)
